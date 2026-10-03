@@ -1,0 +1,17 @@
+{
+  "name": "EMI Calcora - Smart Financial Calculators",
+  "short_name": "EMI Calcora",
+  "description": "Smart financial calculators for EMI, SIP, FD, PPF, GST and more.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#059669",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
