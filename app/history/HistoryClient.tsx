@@ -56,10 +56,10 @@ export function HistoryClient() {
           </div>
           <div>
             <h1 className="text-2xl sm:text-3xl font-display font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-              Calculation History
+              Loan emi calculator App
             </h1>
             <p className="text-sm text-zinc-500 dark:text-zinc-400">
-              Review, compare, and manage your previously saved loan and investment calculations.
+              Loan emi calculator App
             </p>
           </div>
         </div>

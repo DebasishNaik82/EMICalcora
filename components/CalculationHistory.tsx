@@ -33,7 +33,7 @@ export function CalculationHistory({ currency }: { currency: string }) {
         animate={{ opacity: 1 }}
         className="text-center py-12 text-zinc-500"
       >
-        No saved calculations found.
+        No calculations found.
       </motion.div>
     );
   }
@@ -41,7 +41,7 @@ export function CalculationHistory({ currency }: { currency: string }) {
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-xl font-display font-bold text-zinc-800 dark:text-zinc-100">Saved Calculations</h2>
+        <h2 className="text-xl font-display font-bold text-zinc-800 dark:text-zinc-100">Loan emi calculator App</h2>
         <button onClick={clearHistory} className="text-red-500 text-sm hover:underline">Clear All</button>
       </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

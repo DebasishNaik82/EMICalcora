@@ -190,7 +190,7 @@ export function HomeClient() {
               <span>Free, 100% Client-Side & Private Financial Calculators</span>
             </div>
             <h1 className="text-3xl sm:text-5xl font-display font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-4 leading-tight">
-              Smart Financial Planning & Loan Calculators
+              EMI Calculator Online
             </h1>
             <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Calculate loan EMIs, simulate prepayments, model SIP returns, and compute taxes with precision. Every calculator features interactive charts, amortization schedules, and dedicated URLs.

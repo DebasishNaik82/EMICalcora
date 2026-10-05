@@ -1,8 +1,8 @@
 export const siteConfig = {
-  name: 'EMI Calcora',
-  title: 'EMI Calcora - Smart Financial Calculators',
+  name: 'EMI Calculator',
+  title: 'EMI Calculator Online | Calculate Loan EMI | EMI Calcora',
   tagline: 'Smart Calculators. Clear Decisions.',
-  description: 'EMI Calcora is a modern financial calculator platform for loan EMI, investment SIP, FD, PPF, and tax planning. Get accurate results with interactive amortization schedules.',
+  description: 'Free EMI Calculator by EMI Calcora to calculate monthly EMI, total interest, principal and total repayment for home, car and personal loans.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://emicalcora.vercel.app',
   ogImage: '/og-image.png',
   author: 'EMI Calcora Financial Team',
