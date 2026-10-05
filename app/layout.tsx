@@ -45,6 +45,9 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     creator: '@calcora',
   },
+  verification: {
+    google: '9jZDM8686DPhJ6g41RMg1_wh90fp_fPl08gN23BQIOw',
+  },
   other: {
     'google-adsense-account': 'ca-pub-5165373830014732',
   },
