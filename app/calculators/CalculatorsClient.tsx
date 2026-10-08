@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { Calculator, ChevronRight, TrendingUp, Percent, ArrowLeft } from 'lucide-react';
-import { CALCULATOR_DATA } from '@/lib/seo-data';
-import Image from 'next/image';
+import { Calculator, ChevronRight, TrendingUp, Percent } from 'lucide-react';
+import { CALCULATOR_DATA, getCalculatorUrl } from '@/lib/seo-data';
+import { PageHeader } from '@/components/PageHeader';
 import { motion } from 'motion/react';
 
 const CATEGORY_MAP: Record<string, { icon: any; description: string }> = {
@@ -27,25 +27,7 @@ export function CalculatorsClient() {
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50">
-      <header className="sticky top-0 z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo-icon.svg" alt="EMI Calcora Logo" width={32} height={32} className="rounded-lg" />
-            <span className="text-xl font-display font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-emerald-900 dark:from-emerald-400 dark:to-emerald-200">
-              EMI Calcora
-            </span>
-          </Link>
-          <div className="flex items-center gap-3">
-            <Link href="/guides" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 transition-colors">
-              Guides
-            </Link>
-            <Link href="/" className="flex items-center gap-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 transition-colors">
-              <ArrowLeft size={16} />
-              <span>Home</span>
-            </Link>
-          </div>
-        </div>
-      </header>
+      <PageHeader homeLabel="Home" homeHref="/" />
 
       <main className="max-w-7xl mx-auto px-4 py-12">
         <motion.div 
@@ -97,7 +79,7 @@ export function CalculatorsClient() {
                       whileHover={{ y: -4 }}
                     >
                       <Link
-                        href={`/calculators/${calc.slug}`}
+                        href={getCalculatorUrl(calc.slug)}
                         className="p-5 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500 dark:hover:border-emerald-500 hover:shadow-md transition-all group flex flex-col justify-between h-full"
                       >
                         <div>
@@ -113,7 +95,7 @@ export function CalculatorsClient() {
                         </div>
                         <div className="mt-4 pt-3 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between text-xs font-medium text-emerald-600 dark:text-emerald-400">
                           <span>Open Calculator</span>
-                          <span className="text-zinc-400">/calculators/{calc.slug}</span>
+                          <span className="text-zinc-400">{getCalculatorUrl(calc.slug)}</span>
                         </div>
                       </Link>
                     </motion.div>

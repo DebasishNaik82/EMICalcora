@@ -10,6 +10,7 @@ import {
 import { EmiCalculator } from '@/components/EmiCalculator';
 
 import { siteConfig } from '@/lib/site-config';
+import { getCalculatorUrl } from '@/lib/seo-data';
 import Image from 'next/image';
 import { EducationalContent } from '@/components/EducationalContent';
 import { motion, AnimatePresence } from 'motion/react';
@@ -26,21 +27,28 @@ export function HomeClient() {
     }
   }, [darkMode]);
 
-  // Structured Data JSON-LD
+  // Enhanced Structured Data JSON-LD for Search Engine Sitelinks & WebSite Recognition
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'WebApplication',
+        '@type': 'WebSite',
         'name': siteConfig.name,
         'url': siteConfig.url,
-        'applicationCategory': 'FinanceApplication',
-        'operatingSystem': 'All',
         'description': siteConfig.description,
-        'offers': {
-          '@type': 'Offer',
-          'price': '0',
-          'priceCurrency': 'USD'
+        'publisher': {
+          '@type': 'Organization',
+          'name': siteConfig.name,
+          'url': siteConfig.url,
+          'logo': `${siteConfig.url}/logo-icon.svg`,
+        },
+        'potentialAction': {
+          '@type': 'SearchAction',
+          'target': {
+            '@type': 'EntryPoint',
+            'urlTemplate': `${siteConfig.url}/calculators?q={search_term_string}`
+          },
+          'query-input': 'required name=search_term_string'
         }
       },
       {
@@ -48,6 +56,47 @@ export function HomeClient() {
         'name': siteConfig.name,
         'url': siteConfig.url,
         'logo': `${siteConfig.url}/logo-icon.svg`,
+        'sameAs': [
+          siteConfig.links.twitter,
+          siteConfig.links.github,
+        ]
+      },
+      {
+        '@type': 'ItemList',
+        'name': 'Featured Financial Calculators',
+        'description': 'Core financial calculation tools available on EMI Calcora',
+        'itemListElement': [
+          {
+            '@type': 'ListItem',
+            'position': 1,
+            'name': 'Loan EMI Calculator',
+            'url': `${siteConfig.url}/emi-calculator`
+          },
+          {
+            '@type': 'ListItem',
+            'position': 2,
+            'name': 'Home Loan EMI Calculator',
+            'url': `${siteConfig.url}/home-loan-calculator`
+          },
+          {
+            '@type': 'ListItem',
+            'position': 3,
+            'name': 'SIP Calculator',
+            'url': `${siteConfig.url}/sip-calculator`
+          },
+          {
+            '@type': 'ListItem',
+            'position': 4,
+            'name': 'FD Calculator',
+            'url': `${siteConfig.url}/fd-calculator`
+          },
+          {
+            '@type': 'ListItem',
+            'position': 5,
+            'name': 'GST Calculator',
+            'url': `${siteConfig.url}/gst-calculator`
+          }
+        ]
       }
     ]
   };
@@ -209,7 +258,7 @@ export function HomeClient() {
                 </p>
               </div>
               <Link
-                href="/calculators/emi"
+                href="/emi-calculator"
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
               >
                 <span>Full Page View & Formula</span>
@@ -268,7 +317,7 @@ export function HomeClient() {
                       }}
                     >
                       <Link
-                        href={`/calculators/${calc.slug}`}
+                        href={getCalculatorUrl(calc.slug)}
                         className="p-5 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/5 transition-all group flex flex-col justify-between h-full relative overflow-hidden"
                       >
                         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/0 via-emerald-500/0 to-emerald-500/0 group-hover:to-emerald-500/[0.02] transition-colors" />

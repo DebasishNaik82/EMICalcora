@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { ChevronRight, ArrowLeft } from 'lucide-react';
-import { CALCULATOR_DATA, GUIDE_DATA } from '@/lib/seo-data';
-import Image from 'next/image';
+import { ChevronRight } from 'lucide-react';
+import { CALCULATOR_DATA, GUIDE_DATA, getCalculatorUrl } from '@/lib/seo-data';
+import { PageHeader } from '@/components/PageHeader';
 import { motion } from 'motion/react';
 
 export function SitemapClient() {
@@ -12,26 +12,7 @@ export function SitemapClient() {
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50">
-      <header className="sticky top-0 z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <motion.div
-              whileHover={{ scale: 1.05, rotate: 5 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              <Image src="/logo-icon.svg" alt="EMI Calcora Logo" width={32} height={32} className="rounded-lg shadow-sm" />
-            </motion.div>
-            <span className="text-xl font-display font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-emerald-900 dark:from-emerald-400 dark:to-emerald-200">
-              EMI Calcora
-            </span>
-          </Link>
-          <Link href="/" className="flex items-center gap-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 transition-colors">
-            <ArrowLeft size={16} />
-            <span>Home</span>
-          </Link>
-        </div>
-      </header>
+      <PageHeader homeLabel="Home" homeHref="/" />
 
       <main className="max-w-4xl mx-auto px-4 py-12 space-y-10">
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
@@ -72,7 +53,7 @@ export function SitemapClient() {
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {calculatorSlugs.map((slug) => (
               <li key={slug}>
-                <Link href={`/calculators/${slug}`} className="text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1.5">
+                <Link href={getCalculatorUrl(slug)} className="text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1.5">
                   <ChevronRight size={14} />
                   {CALCULATOR_DATA[slug].name}
                 </Link>

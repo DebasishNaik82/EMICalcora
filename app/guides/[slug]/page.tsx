@@ -1,10 +1,10 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { GUIDE_DATA } from '@/lib/seo-data';
-import { ArrowLeft, BookOpen, Clock, Calendar, ChevronRight, HelpCircle } from 'lucide-react';
+import { GUIDE_DATA, getCalculatorUrl } from '@/lib/seo-data';
+import { BookOpen, Clock, Calendar, ChevronRight, HelpCircle } from 'lucide-react';
 import { siteConfig } from '@/lib/site-config';
-import Image from 'next/image';
+import { PageHeader } from '@/components/PageHeader';
 import { ScrollProgressBar } from '@/components/ui/ScrollProgressBar';
 
 interface GuidePageProps {
@@ -118,24 +118,7 @@ export default async function GuideDetailPage({ params }: GuidePageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Header navigation */}
-      <header className="sticky top-0 z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <Image src="/logo-icon.svg" alt="EMI Calcora Logo" width={32} height={32} className="rounded-lg" />
-            <span className="text-xl font-display font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-emerald-900 dark:from-emerald-400 dark:to-emerald-200">
-              EMI Calcora
-            </span>
-          </Link>
-          <Link 
-            href="/" 
-            className="flex items-center gap-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
-          >
-            <ArrowLeft size={16} />
-            <span>Home</span>
-          </Link>
-        </div>
-      </header>
+      <PageHeader homeLabel="All Guides" homeHref="/guides" />
 
       <main className="max-w-4xl mx-auto px-4 py-10">
         {/* Breadcrumb visible navigation */}
@@ -228,7 +211,7 @@ export default async function GuideDetailPage({ params }: GuidePageProps) {
               {guide.relatedCalculators.map((rc) => (
                 <Link
                   key={rc.slug}
-                  href={`/calculators/${rc.slug}`}
+                  href={getCalculatorUrl(rc.slug)}
                   className="px-4 py-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-lg text-sm font-medium text-emerald-700 dark:text-emerald-400 hover:border-emerald-500 shadow-sm transition-all flex items-center gap-1.5"
                 >
                   <span>{rc.name}</span>

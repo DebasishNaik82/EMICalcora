@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { siteConfig } from '@/lib/site-config';
-import { CALCULATOR_DATA } from '@/lib/seo-data';
+import { CALCULATOR_DATA, getCalculatorUrl } from '@/lib/seo-data';
 import { CalculatorsClient } from './CalculatorsClient';
 
 export const metadata: Metadata = {
@@ -44,7 +44,7 @@ export default function CalculatorsIndexPage() {
           'item': {
             '@type': 'WebApplication',
             'name': calc.name,
-            'url': `${siteConfig.url}/calculators/${calc.slug}`,
+            'url': `${siteConfig.url}${getCalculatorUrl(calc.slug)}`,
             'applicationCategory': 'FinanceApplication',
             'operatingSystem': 'All',
             'description': calc.description,

@@ -37,6 +37,63 @@ export interface GuideSEOInfo {
   relatedCalculators: { slug: string; name: string }[];
 }
 
+export const CALCULATOR_PATH_MAP: Record<string, string> = {
+  'emi': 'emi-calculator',
+  'home-loan': 'home-loan-calculator',
+  'personal-loan': 'personal-loan-calculator',
+  'car-loan': 'car-loan-calculator',
+  'education-loan': 'education-loan-calculator',
+  'eligibility': 'loan-eligibility-calculator',
+  'comparison': 'loan-comparison-calculator',
+  'prepayment': 'prepayment-calculator',
+  'simple-interest': 'simple-interest-calculator',
+  'compound-interest': 'compound-interest-calculator',
+  'sip': 'sip-calculator',
+  'fd': 'fd-calculator',
+  'ppf': 'ppf-calculator',
+  'retirement': 'retirement-calculator',
+  'gst': 'gst-calculator',
+};
+
+export const PATH_TO_SLUG_MAP: Record<string, string> = {
+  'emi-calculator': 'emi',
+  'loan-calculator': 'emi',
+  'home-loan-calculator': 'home-loan',
+  'personal-loan-calculator': 'personal-loan',
+  'car-loan-calculator': 'car-loan',
+  'education-loan-calculator': 'education-loan',
+  'loan-eligibility-calculator': 'eligibility',
+  'loan-comparison-calculator': 'comparison',
+  'prepayment-calculator': 'prepayment',
+  'simple-interest-calculator': 'simple-interest',
+  'compound-interest-calculator': 'compound-interest',
+  'sip-calculator': 'sip',
+  'fd-calculator': 'fd',
+  'ppf-calculator': 'ppf',
+  'retirement-calculator': 'retirement',
+  'gst-calculator': 'gst',
+  'emi': 'emi',
+  'home-loan': 'home-loan',
+  'personal-loan': 'personal-loan',
+  'car-loan': 'car-loan',
+  'education-loan': 'education-loan',
+  'eligibility': 'eligibility',
+  'comparison': 'comparison',
+  'prepayment': 'prepayment',
+  'simple-interest': 'simple-interest',
+  'compound-interest': 'compound-interest',
+  'sip': 'sip',
+  'fd': 'fd',
+  'ppf': 'ppf',
+  'retirement': 'retirement',
+  'gst': 'gst',
+};
+
+export function getCalculatorUrl(slugKey: string): string {
+  const path = CALCULATOR_PATH_MAP[slugKey] || slugKey;
+  return `/${path}`;
+}
+
 export const CALCULATOR_DATA: Record<string, CalculatorSEOInfo> = {
   'emi': {
     slug: 'emi',

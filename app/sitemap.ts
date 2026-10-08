@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { CALCULATOR_DATA, GUIDE_DATA } from '@/lib/seo-data';
+import { CALCULATOR_DATA, GUIDE_DATA, getCalculatorUrl } from '@/lib/seo-data';
 import { siteConfig } from '@/lib/site-config';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -10,10 +10,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const trustPages = ['calculators', 'guides', 'about', 'contact', 'privacy', 'terms', 'disclaimer', 'methodology'];
 
   const calcEntries = calculatorSlugs.map((slug) => ({
-    url: `${baseUrl}/calculators/${slug}`,
+    url: `${baseUrl}${getCalculatorUrl(slug)}`,
     lastModified: new Date(),
     changeFrequency: 'daily' as const,
-    priority: 0.8,
+    priority: 0.9,
   }));
 
   const guideEntries = guideSlugs.map((slug) => ({

@@ -6,21 +6,32 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
+    loans: [
+      { name: 'Loan EMI Calculator', href: '/emi-calculator' },
+      { name: 'Home Loan EMI Calculator', href: '/home-loan-calculator' },
+      { name: 'Personal Loan Calculator', href: '/personal-loan-calculator' },
+      { name: 'Car Loan EMI Calculator', href: '/car-loan-calculator' },
+      { name: 'Education Loan Calculator', href: '/education-loan-calculator' },
+      { name: 'Loan Eligibility Calculator', href: '/loan-eligibility-calculator' },
+      { name: 'Loan Comparison Calculator', href: '/loan-comparison-calculator' },
+      { name: 'Prepayment Simulator', href: '/prepayment-calculator' },
+    ],
+    investmentAndTax: [
+      { name: 'SIP Calculator', href: '/sip-calculator' },
+      { name: 'Fixed Deposit (FD) Calculator', href: '/fd-calculator' },
+      { name: 'PPF Calculator', href: '/ppf-calculator' },
+      { name: 'Simple Interest Calculator', href: '/simple-interest-calculator' },
+      { name: 'Compound Interest Calculator', href: '/compound-interest-calculator' },
+      { name: 'Retirement Calculator', href: '/retirement-calculator' },
+      { name: 'GST Calculator', href: '/gst-calculator' },
+    ],
     navigation: [
       { name: 'Home', href: '/' },
-      { name: 'EMI Calculator', href: '/calculators/emi' },
-      { name: 'Home Loan EMI', href: '/calculators/home-loan' },
-      { name: 'Personal Loan EMI', href: '/calculators/personal-loan' },
-      { name: 'Car Loan EMI', href: '/calculators/car-loan' },
+      { name: 'All Calculators Directory', href: '/calculators' },
+      { name: 'Financial Guides', href: '/guides' },
       { name: 'About EMI Calcora', href: '/about' },
-      { name: 'Contact', href: '/contact' },
-    ],
-    popular: [
-      { name: 'EMI Calculator', href: '/calculators/emi' },
-      { name: 'Loan EMI Calculator', href: '/calculators/emi' },
-      { name: 'Home Loan EMI', href: '/calculators/home-loan' },
-      { name: 'Personal Loan EMI', href: '/calculators/personal-loan' },
-      { name: 'Car Loan EMI', href: '/calculators/car-loan' },
+      { name: 'Data Methodology', href: '/methodology' },
+      { name: 'Contact Support', href: '/contact' },
     ],
     legal: [
       { name: 'Privacy Policy', href: '/privacy' },
@@ -38,7 +49,7 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 pt-16 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
           {/* Brand & Mission */}
-          <div className="lg:col-span-4 space-y-8">
+          <div className="lg:col-span-3 space-y-6">
             <div className="space-y-4">
               <Link href="/" className="flex items-center gap-2.5 group w-fit">
                 <Image 
@@ -52,84 +63,84 @@ export const Footer = () => {
                   EMI Calcora
                 </span>
               </Link>
-              <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400 max-w-sm">
+              <p className="text-xs leading-relaxed text-zinc-500 dark:text-zinc-400 max-w-sm">
                 Smart financial calculators and clear, practical tools for making better financial decisions. Empowering your financial future through clarity and precision.
               </p>
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3">
               <div className="flex items-center gap-3 group">
-                <div className="w-10 h-10 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform">
-                  <Mail size={18} />
+                <div className="w-8 h-8 rounded-lg bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                  <Mail size={16} />
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Contact Support</p>
-                  <a href="mailto:support@calcora.in" className="text-sm font-semibold text-zinc-800 dark:text-zinc-200 hover:text-emerald-600 transition-colors">
+                  <a href="mailto:support@calcora.in" className="text-xs font-semibold text-zinc-800 dark:text-zinc-200 hover:text-emerald-600 transition-colors">
                     support@calcora.in
                   </a>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 group">
-                <div className="w-10 h-10 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform">
-                  <Calculator size={18} />
-                </div>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Platform Status</p>
-                  <span className="text-sm font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    All Systems Operational
-                  </span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Links Sections */}
-          <div className="lg:col-span-2 space-y-6">
-            <h4 className="text-xs font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-widest">Navigation</h4>
-            <nav className="flex flex-col gap-3">
+          <div className="lg:col-span-3 space-y-4">
+            <h4 className="text-xs font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-widest">Loan Calculators</h4>
+            <nav className="flex flex-col gap-2">
+              {footerLinks.loans.map((link) => (
+                <Link 
+                  key={link.name} 
+                  href={link.href} 
+                  className="text-xs hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5 group"
+                >
+                  <ChevronRight size={12} className="opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-emerald-500" />
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          <div className="lg:col-span-3 space-y-4">
+            <h4 className="text-xs font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-widest">Investment & Tax</h4>
+            <nav className="flex flex-col gap-2">
+              {footerLinks.investmentAndTax.map((link) => (
+                <Link 
+                  key={link.name} 
+                  href={link.href} 
+                  className="text-xs hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5 group"
+                >
+                  <ChevronRight size={12} className="opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-emerald-500" />
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          <div className="lg:col-span-3 space-y-4">
+            <h4 className="text-xs font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-widest">Site & Legal</h4>
+            <nav className="flex flex-col gap-2">
               {footerLinks.navigation.map((link) => (
                 <Link 
                   key={link.name} 
                   href={link.href} 
-                  className="text-sm hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-2 group"
+                  className="text-xs hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5 group font-medium text-zinc-800 dark:text-zinc-200"
                 >
-                  <ChevronRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all text-emerald-500" />
+                  <ChevronRight size={12} className="opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-emerald-500" />
                   {link.name}
                 </Link>
               ))}
-            </nav>
-          </div>
-
-          <div className="lg:col-span-3 space-y-6">
-            <h4 className="text-xs font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-widest">Popular Tools</h4>
-            <nav className="flex flex-col gap-3">
-              {footerLinks.popular.map((link, idx) => (
-                <Link 
-                  key={idx} 
-                  href={link.href} 
-                  className="text-sm hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-2 group"
-                >
-                  <ChevronRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all text-emerald-500" />
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          <div className="lg:col-span-3 space-y-6">
-            <h4 className="text-xs font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-widest">Legal & Policies</h4>
-            <nav className="flex flex-col gap-3">
-              {footerLinks.legal.map((link) => (
-                <Link 
-                  key={link.name} 
-                  href={link.href} 
-                  className="text-sm hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-2 group"
-                >
-                  <ChevronRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all text-emerald-500" />
-                  {link.name}
-                </Link>
-              ))}
+              <div className="pt-2 border-t border-zinc-100 dark:border-zinc-800/80 flex flex-col gap-2">
+                {footerLinks.legal.map((link) => (
+                  <Link 
+                    key={link.name} 
+                    href={link.href} 
+                    className="text-xs hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5 group text-zinc-500"
+                  >
+                    <ChevronRight size={12} className="opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all text-emerald-500" />
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
             </nav>
           </div>
         </div>
