@@ -21,11 +21,12 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  applicationName: 'EMI Calcora',
   title: {
-    default: siteConfig.title,
-    template: `%s | ${siteConfig.name}`,
+    default: 'EMI Calcora | EMI Calculator Online',
+    template: '%s | EMI Calcora',
   },
-  description: siteConfig.description,
+  description: 'EMI Calcora is a free online EMI Calculator to calculate loan EMIs, interest, and total repayment for home, car, and personal loans.',
   manifest: '/manifest.json',
   icons: {
     icon: '/favicon.svg',
@@ -35,14 +36,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: siteConfig.url,
-    title: siteConfig.title,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
+    title: 'EMI Calcora',
+    description: 'EMI Calcora is a free online EMI Calculator to calculate loan EMIs, interest, and total repayment for home, car, and personal loans.',
+    siteName: 'EMI Calcora',
   },
   twitter: {
     card: 'summary_large_image',
-    title: siteConfig.title,
-    description: siteConfig.description,
+    title: 'EMI Calcora',
+    description: 'EMI Calcora is a free online EMI Calculator to calculate loan EMIs, interest, and total repayment for home, car, and personal loans.',
     creator: '@calcora',
   },
   verification: {

@@ -34,6 +34,7 @@ export function HomeClient() {
       {
         '@type': 'WebSite',
         'name': siteConfig.name,
+        'alternateName': ['EMICalcora', 'EMI Calcora Calculator', 'EMI Calcora App'],
         'url': siteConfig.url,
         'description': siteConfig.description,
         'publisher': {
@@ -95,6 +96,43 @@ export function HomeClient() {
             'position': 5,
             'name': 'GST Calculator',
             'url': `${siteConfig.url}/gst-calculator`
+          }
+        ]
+      },
+      {
+        '@type': 'FAQPage',
+        'mainEntity': [
+          {
+            '@type': 'Question',
+            'name': 'What factors affect my loan EMI?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Your EMI is primarily determined by three factors: the principal amount, the interest rate, and the loan tenure. A higher principal or interest rate increases the EMI, while a longer tenure decreases the monthly payment but increases total interest paid.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Can I change my EMI amount later?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'In most cases, you can change your EMI by making a part-prepayment or by requesting a loan restructuring from your bank. Floating interest rate changes can also impact your EMI or tenure.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Is it better to have a shorter or longer tenure?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'A shorter tenure means higher EMIs but significantly lower total interest outgo. A longer tenure makes EMIs more affordable but costs much more in total interest over the life of the loan.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'What is an amortization schedule?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'An amortization schedule is a table detailing each periodic payment on a loan. It shows the amount of principal and interest that make up each payment until the loan is paid off.'
+            }
           }
         ]
       }
@@ -239,7 +277,7 @@ export function HomeClient() {
               <span>Free, 100% Client-Side & Private Financial Calculators</span>
             </div>
             <h1 className="text-3xl sm:text-5xl font-display font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-4 leading-tight">
-              EMI Calculator Online
+              EMI Calcora – Free Online EMI Calculator
             </h1>
             <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Calculate loan EMIs, simulate prepayments, model SIP returns, and compute taxes with precision. Every calculator features interactive charts, amortization schedules, and dedicated URLs.

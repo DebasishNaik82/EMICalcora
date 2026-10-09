@@ -11,9 +11,36 @@ export const metadata: Metadata = {
 };
 
 export default function TermsPage() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          {
+            '@type': 'ListItem',
+            'position': 1,
+            'name': 'Home',
+            'item': siteConfig.url,
+          },
+          {
+            '@type': 'ListItem',
+            'position': 2,
+            'name': 'Terms and Conditions',
+            'item': `${siteConfig.url}/terms`,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50">
-      <PageHeader />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <PageHeader homeLabel="Home" homeHref="/" />
 
       <main className="max-w-4xl mx-auto px-4 py-12">
         <h1 className="text-3xl md:text-5xl font-display font-bold tracking-tight mb-6">Terms and Conditions</h1>
